@@ -18,7 +18,11 @@ casper.then(function (){
 casper.thenClick(x('//*[@id="content"]/form/button'), function(){
 	casper.capture("the_testimage.png");
 	console.log("done");
-	});
+});
 
+casper.wait(2000, function() {
+	var the_text = casper.fetchText(x('//*[@id="content"]/p'));
+	console.log(the_text);
+});
 
 casper.run();
